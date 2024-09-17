@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.lhamacorp.mockey.api.dto.MockRequest;
 import com.lhamacorp.mockey.model.Mockey;
 import com.lhamacorp.mockey.util.ContentParser;
-import com.lhamacorp.mockey.service.MockeyService;
+import com.lhamacorp.mockey.service.MockService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("api/mocks")
 @AllArgsConstructor
-public class MocksController {
+public class MockController {
 
-    private final MockeyService service;
+    private final MockService service;
 
     @GetMapping("{id}")
     public ResponseEntity<Object> get(@PathVariable String id) throws JsonProcessingException {
