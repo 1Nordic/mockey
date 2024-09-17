@@ -2,7 +2,7 @@ package com.lhamacorp.mockey.service;
 
 import com.lhamacorp.mockey.exception.NotFoundException;
 import com.lhamacorp.mockey.model.Mockey;
-import com.lhamacorp.mockey.repository.MockeyRepository;
+import com.lhamacorp.mockey.repository.MockRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +11,9 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
-public class MockeyService {
+public class MockService {
 
-    private final MockeyRepository repository;
+    private final MockRepository repository;
 
     public Mockey get(String id) {
         return repository.findById(id).orElseThrow(() -> new NotFoundException("Mockey not found"));
