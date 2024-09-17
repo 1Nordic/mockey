@@ -6,6 +6,7 @@ import com.lhamacorp.mockey.repository.MockeyRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.UUID;
 
 @Service
@@ -19,12 +20,13 @@ public class MockeyService {
     }
 
     public Mockey create(String content) {
-        return repository.save(new Mockey(UUID.randomUUID().toString(), content));
+        return repository.save(new Mockey(UUID.randomUUID().toString(), content, Instant.now()));
     }
 
     public Mockey update(String id, String content) {
         Mockey toUpdate = get(id);
         toUpdate.setContent(content);
+        toUpdate.setLastModified(Instant.now());
 
         return repository.save(toUpdate);
     }

@@ -1,9 +1,7 @@
 package com.lhamacorp.mockey.api;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import com.lhamacorp.mockey.api.dto.MockRequest;
 import com.lhamacorp.mockey.model.Mockey;
 import com.lhamacorp.mockey.service.MockeyService;
@@ -37,6 +35,12 @@ public class MocksController {
     public ResponseEntity<Mockey> update(@PathVariable String id, @RequestBody MockRequest request) {
         Mockey response = service.update(id, request.content());
         return ResponseEntity.ok(response);
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> delete(@PathVariable String id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
 }
