@@ -1,4 +1,4 @@
 package com.lhamacorp.mockey.api.dto;
 
-public record MockRequest(String content) {
+public record MockRequest(String content, String type) {
 }

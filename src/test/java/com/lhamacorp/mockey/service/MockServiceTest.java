@@ -41,7 +41,7 @@ public class MockServiceTest {
         String content = "simple content mock";
 
         //when
-        Mockey result = service.create(content);
+        Mockey result = service.create(content, "text/plain");
 
         createdId = result.getId();
 
@@ -57,7 +57,7 @@ public class MockServiceTest {
         //given
         String content = "simple content mock";
         String updatedContent = "updated content mock update";
-        Mockey mock = service.create(content);
+        Mockey mock = service.create(content, "text/plain");
 
         //when
         Mockey result = service.update(mock.getId(), updatedContent);
@@ -77,7 +77,7 @@ public class MockServiceTest {
         String jsonContent = "{\"key\":\"value\",\"anotherKey\":\"anotherValue\"}";
 
         // when
-        Mockey result = service.create(jsonContent);
+        Mockey result = service.create(jsonContent, "application/json");
 
         createdId = result.getId();
 

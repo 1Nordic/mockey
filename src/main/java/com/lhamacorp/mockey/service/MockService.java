@@ -4,6 +4,7 @@ import com.lhamacorp.mockey.exception.NotFoundException;
 import com.lhamacorp.mockey.model.Mockey;
 import com.lhamacorp.mockey.repository.MockRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 
 import static java.time.Instant.now;
@@ -21,8 +22,13 @@ public class MockService {
         return mock;
     }
 
-    public Mockey create(String content) {
-        return repository.save(new Mockey(randomUUID().toString(), content, now(), now()));
+    public Mockey create(String content, String type) {
+        return repository.save(new Mockey(randomUUID().toString(),
+            content,
+            type,
+            now(),
+            now()
+        ));
     }
 
     public Mockey update(String id, String content) {

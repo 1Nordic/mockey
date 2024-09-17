@@ -15,6 +15,7 @@ public class Mockey {
     @Id
     private String id;
     private String content;
+    private String type;
     private Instant lastModified;
     private Instant lastAccessed;
 
