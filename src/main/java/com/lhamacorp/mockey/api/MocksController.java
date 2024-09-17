@@ -1,9 +1,9 @@
 package com.lhamacorp.mockey.api;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lhamacorp.mockey.api.dto.MockRequest;
 import com.lhamacorp.mockey.model.Mockey;
+import com.lhamacorp.mockey.service.ContentParser;
 import com.lhamacorp.mockey.service.MockeyService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,13 +17,10 @@ public class MocksController {
 
     private final MockeyService service;
 
-    private static final ObjectMapper mapper = new ObjectMapper();
-
     @GetMapping("{id}")
     public ResponseEntity<Object> get(@PathVariable String id) throws JsonProcessingException {
         Mockey response = service.get(id);
-        Object json = mapper.readValue(response.getContent(), Object.class);
-        return ResponseEntity.ok(json);
+        return ResponseEntity.ok(ContentParser.parse(response.getContent()));
     }
 
     @PostMapping
