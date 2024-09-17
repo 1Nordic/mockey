@@ -1,4 +1,4 @@
-package com.lhamacorp.mockey.service;
+package com.lhamacorp.mockey.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

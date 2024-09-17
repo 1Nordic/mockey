@@ -3,7 +3,7 @@ package com.lhamacorp.mockey.api;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.lhamacorp.mockey.api.dto.MockRequest;
 import com.lhamacorp.mockey.model.Mockey;
-import com.lhamacorp.mockey.service.ContentParser;
+import com.lhamacorp.mockey.util.ContentParser;
 import com.lhamacorp.mockey.service.MockeyService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
