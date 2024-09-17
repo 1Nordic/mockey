@@ -43,14 +43,13 @@ public class MockServiceTest {
         //when
         Mockey result = service.create(content);
 
+        createdId = result.getId();
+
         //then
         assertNotNull(result.getId());
         assertNotNull(result.getContent());
         assertNotNull(result.getLastModified());
         assertEquals(result.getContent(), content);
-
-        //and
-        createdId = result.getId();
     }
 
     @Test
@@ -63,14 +62,13 @@ public class MockServiceTest {
         //when
         Mockey result = service.update(mock.getId(), updatedContent);
 
+        createdId = result.getId();
+
         //then
         assertNotNull(result.getId());
         assertNotNull(result.getContent());
         assertNotNull(result.getLastModified());
         assertEquals(result.getContent(), updatedContent);
-
-        //and
-        createdId = result.getId();
     }
 
     @Test
@@ -81,14 +79,13 @@ public class MockServiceTest {
         // when
         Mockey result = service.create(jsonContent);
 
+        createdId = result.getId();
+
         // then
         assertNotNull(result.getId());
         assertNotNull(result.getContent());
         assertNotNull(result.getLastModified());
         assertEquals(result.getContent(), jsonContent);
-
-        // and
-        createdId = result.getId();
     }
 
 }
