@@ -57,7 +57,7 @@ jobs:
             docker pull lhamacorp/mockey:latest
             docker stop mockey || true
             docker rm mockey || true
-            docker run -d --name mockey -p 49216:8080 -e mongo=${{ secrets.MONGO }} lhamacorp/mockey:latest
+            docker run -d --name mockey --restart always -p 49216:8080 -e mongo=${{ secrets.MONGO }} lhamacorp/mockey:latest
 
   cleanup:
     name: Clean ups
