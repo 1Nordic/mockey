@@ -17,8 +17,8 @@ public class MockController {
 
     private final MockService service;
 
-    @GetMapping("{id}")
-    public ResponseEntity<Object> get(@PathVariable String id) throws JsonProcessingException {
+    @GetMapping(value = "{id}", produces = "application/json")
+    public ResponseEntity<?> get(@PathVariable String id) throws JsonProcessingException {
         Mockey response = service.get(id);
         return ResponseEntity.ok(ContentParser.parse(response.getContent()));
     }
