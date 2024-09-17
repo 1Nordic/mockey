@@ -73,4 +73,22 @@ public class MockServiceTest {
         createdId = result.getId();
     }
 
+    @Test
+    public void shouldCreateJsonMock() {
+        // given
+        String jsonContent = "{\"key\":\"value\",\"anotherKey\":\"anotherValue\"}";
+
+        // when
+        Mockey result = service.create(jsonContent);
+
+        // then
+        assertNotNull(result.getId());
+        assertNotNull(result.getContent());
+        assertNotNull(result.getLastModified());
+        assertEquals(result.getContent(), jsonContent);
+
+        // and
+        createdId = result.getId();
+    }
+
 }
